@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#14181b"/><stop offset="1" stop-color="#090d10"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="10"/></filter></defs>
+<rect width="800" height="320" fill="url(#g)"/>
+<g opacity=".28" filter="url(#shadow)" fill="#69737a"><circle cx="130" cy="120" r="85"/><circle cx="320" cy="170" r="110"/><circle cx="570" cy="115" r="125"/><circle cx="720" cy="235" r="95"/></g>
+<g fill="#69737a" opacity=".68"><polygon points="60,260 145,70 220,250"/><polygon points="205,265 315,55 390,255"/><polygon points="380,265 540,35 635,260"/><polygon points="575,270 700,90 780,265"/></g>
+<rect x="34" y="34" width="72" height="72" rx="6" fill="#071015" opacity=".82" stroke="#69737a"/>
+<text x="70" y="80" text-anchor="middle" fill="#69737a" font-family="Arial" font-size="30" font-weight="700">C</text>
+<text x="34" y="295" fill="#eaf1f4" font-family="Arial" font-size="21" font-weight="700" letter-spacing="5">GRAPHITE</text>
+</svg>
