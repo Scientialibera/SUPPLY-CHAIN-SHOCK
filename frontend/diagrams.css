@@ -1,8 +1,10 @@
 /* Collision-safe diagram and responsive layout rules. */
 .flow-panel,.chart-panel,.mitigation-panel,.recovery-panel{min-width:0;overflow:hidden}
 .diagram-scroll{width:100%;overflow-x:auto;overflow-y:hidden}
-.diagram-scroll svg{display:block;width:100%;min-width:760px;height:auto;aspect-ratio:1200/330}
-.recovery-scroll svg{min-width:680px;aspect-ratio:1100/220}
+.diagram-scroll svg{display:block;width:100%;min-width:760px;height:280px}
+.recovery-scroll svg{min-width:680px;height:220px}
+.materials-view.view.active{display:block;height:calc(100vh - 70px);overflow-x:hidden;overflow-y:auto;padding-bottom:48px}
+.flow-panel{height:auto;min-height:370px;overflow:hidden}
 .scenario-view{grid-template-columns:290px minmax(0,1fr)}
 .scenario-main{min-width:0}
 .kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -34,6 +36,7 @@
   .nav{flex:1;white-space:nowrap}
   .status{align-self:start}
   .view,main{height:auto;min-height:calc(100vh - 120px)}
+  .materials-view.view.active{height:auto;min-height:calc(100vh - 120px);overflow:visible;padding-bottom:48px}
   .command-layout{grid-template-columns:1fr}
   .left-panel,.right-panel,.materials-view,.scenario-controls,.scenario-main{overflow:visible}
   .map-wrap{min-height:520px;order:-1}
