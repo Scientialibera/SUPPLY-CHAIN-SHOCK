@@ -6,6 +6,7 @@
   <title>Supply Chain Shock</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/diagrams.css">
 </head>
 <body>
 <div class="app-shell">
@@ -42,7 +43,7 @@
     <section id="view-materials" class="view materials-view">
       <div class="section-header"><div><span class="eyebrow">CRITICAL MATERIALS</span><h2>Primary materials and mineral dependency</h2></div><p>Portfolio spend, source concentration, inventory buffer and substitution difficulty.</p></div>
       <div id="materialGrid" class="material-grid"></div>
-      <div class="panel flow-panel"><div><span class="eyebrow">DEPENDENCY CHAIN</span><h2>Country to material to industry exposure</h2></div><svg id="flowSvg" viewBox="0 0 1200 330" preserveAspectRatio="none"></svg></div>
+      <div class="panel flow-panel"><div><span class="eyebrow">DEPENDENCY CHAIN</span><h2>Country to material to industry exposure</h2></div><div class="diagram-scroll"><svg id="flowSvg" viewBox="0 0 1200 330" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dependency chain from source countries through materials to manufacturing"></svg></div></div>
     </section>
 
     <section id="view-scenario" class="view scenario-view">
@@ -62,7 +63,7 @@
           <div class="panel chart-panel"><span class="eyebrow">FINANCIAL EXPOSURE</span><h2>Revenue at risk by material</h2><div id="impactBars" class="bar-list"></div></div>
           <div class="panel mitigation-panel"><span class="eyebrow">MITIGATION OPTIMIZER</span><h2>Recommended actions</h2><div id="mitigationList"></div></div>
         </div>
-        <div class="panel recovery-panel"><span class="eyebrow">DISRUPTION CURVE</span><h2>Inventory depletion and recovery</h2><svg id="recoverySvg" viewBox="0 0 1100 220" preserveAspectRatio="none"></svg></div>
+        <div class="panel recovery-panel"><span class="eyebrow">DISRUPTION CURVE</span><h2>Inventory depletion and recovery</h2><div class="diagram-scroll recovery-scroll"><svg id="recoverySvg" viewBox="0 0 1100 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Available supply over the disruption and recovery period"></svg></div></div>
       </section>
     </section>
   </main>

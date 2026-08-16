@@ -1,0 +1,55 @@
+/* Collision-safe diagram and responsive layout rules. */
+.flow-panel,.chart-panel,.mitigation-panel,.recovery-panel{min-width:0;overflow:hidden}
+.diagram-scroll{width:100%;overflow-x:auto;overflow-y:hidden}
+.diagram-scroll svg{display:block;width:100%;min-width:760px;height:auto;aspect-ratio:1200/330}
+.recovery-scroll svg{min-width:680px;aspect-ratio:1100/220}
+.scenario-view{grid-template-columns:290px minmax(0,1fr)}
+.scenario-main{min-width:0}
+.kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kpi{min-width:0;overflow:hidden}
+.kpi strong{display:block;font-size:clamp(16px,2vw,21px);overflow-wrap:anywhere}
+.scenario-grid{grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr)}
+.bar-row{grid-template-columns:minmax(72px,90px) minmax(60px,1fr) minmax(68px,max-content)}
+.bar-row>span,.bar-row>strong{min-width:0;overflow-wrap:anywhere}
+.bar-row>strong{text-align:right}
+.bar-track{min-width:0}
+.bar-track i{max-width:100%}
+.mitigation .row{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:12px}
+.mitigation .row strong:first-child{overflow-wrap:anywhere}
+.scenario-controls select{min-width:0}
+.material-visual{position:relative;height:105px;overflow:hidden;background:#0f171d}
+.material-card .material-art{display:block;width:100%;height:105px;object-fit:cover}
+.material-card .mineral-badge{position:absolute;z-index:2;top:10px;right:10px;width:62px;height:62px;object-fit:cover;border-radius:50%;border:2px solid rgba(220,239,246,.86);background:#0c151b;box-shadow:0 6px 18px rgba(0,0,0,.42),0 0 0 3px rgba(8,18,24,.5)}
+
+@media(max-width:1200px){
+  .command-layout{grid-template-columns:240px minmax(0,1fr) 260px}
+  .material-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .scenario-grid{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .app-shell{height:auto;min-height:100vh;grid-template-rows:auto 1fr;overflow:visible}
+  .topbar{grid-template-columns:1fr auto;gap:12px;padding:12px 14px}
+  .topbar nav{grid-column:1/-1;grid-row:2;width:100%;overflow-x:auto}
+  .nav{flex:1;white-space:nowrap}
+  .status{align-self:start}
+  .view,main{height:auto;min-height:calc(100vh - 120px)}
+  .command-layout{grid-template-columns:1fr}
+  .left-panel,.right-panel,.materials-view,.scenario-controls,.scenario-main{overflow:visible}
+  .map-wrap{min-height:520px;order:-1}
+  .material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .scenario-view{grid-template-columns:1fr}
+  .section-header{align-items:start;flex-direction:column;gap:6px}
+}
+@media(max-width:560px){
+  .topbar{grid-template-columns:1fr}
+  .status{display:none}
+  .material-grid,.kpi-grid{grid-template-columns:1fr}
+  .map-wrap{min-height:430px}
+  .map-title{top:10px;left:10px;right:10px}
+  .legend{left:10px;right:10px;justify-content:space-between;gap:6px}
+  .bar-row{grid-template-columns:minmax(65px,80px) minmax(45px,1fr) minmax(60px,max-content);gap:6px}
+  .mitigation .row{grid-template-columns:1fr}
+  .mitigation .row strong:last-child{text-align:left}
+  .flow-panel,.chart-panel,.mitigation-panel,.recovery-panel{padding:12px}
+}

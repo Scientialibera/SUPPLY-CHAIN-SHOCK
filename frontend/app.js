@@ -3,6 +3,7 @@ let map = null;
 const $ = (id) => document.getElementById(id);
 const money = (v) => { const n=Number(v||0); if(n>=1e9)return `$${(n/1e9).toFixed(2)}B`; if(n>=1e6)return `$${(n/1e6).toFixed(1)}M`; return `$${n.toLocaleString()}`; };
 const esc = (s) => String(s ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const mineralBadge = (name) => `/assets/minerals/${String(name).toLowerCase().replaceAll(' ','-')}.png`;
 
 function riskColor(score){ return score>=70?'#ff5b56':score>=50?'#f5b84e':score>=30?'#42d7ff':'#52e0bb'; }
 function exposureForMaterial(name){ return portfolio.exposures.filter(x=>x.material===name); }
@@ -36,7 +37,7 @@ function initMap(){
 function renderMaterials(){
   $('materialGrid').innerHTML=portfolio.materials.map(m=>{
     const c=materialConcentration(m.name); const risk=Math.max(...exposureForMaterial(m.name).map(x=>x.risk_score),0);
-    return `<article class="material-card"><img src="${m.image}" alt="${esc(m.name)}"><div class="body"><div class="title"><div><span class="eyebrow">${esc(m.category)}</span><h3>${esc(m.name)}</h3></div><span class="symbol">${esc(m.symbol)}</span></div><div class="metric-line"><span>Annual spend</span><strong>${money(m.annual_spend_usd)}</strong></div><div class="metric-line"><span>Largest source share</span><strong>${Math.round(c*100)}%</strong></div><div class="mini-track"><i style="width:${c*100}%"></i></div><div class="metric-line"><span>Inventory buffer</span><strong>${m.inventory_days} days</strong></div><div class="metric-line"><span>Exposure risk</span><strong style="color:${riskColor(risk)}">${risk.toFixed(0)}/100</strong></div></div></article>`;
+    return `<article class="material-card"><div class="material-visual"><img class="material-art" src="${m.image}" alt=""><img class="mineral-badge" src="${mineralBadge(m.name)}" alt="${esc(m.name)} mineral specimen"></div><div class="body"><div class="title"><div><span class="eyebrow">${esc(m.category)}</span><h3>${esc(m.name)}</h3></div><span class="symbol">${esc(m.symbol)}</span></div><div class="metric-line"><span>Annual spend</span><strong>${money(m.annual_spend_usd)}</strong></div><div class="metric-line"><span>Largest source share</span><strong>${Math.round(c*100)}%</strong></div><div class="mini-track"><i style="width:${c*100}%"></i></div><div class="metric-line"><span>Inventory buffer</span><strong>${m.inventory_days} days</strong></div><div class="metric-line"><span>Exposure risk</span><strong style="color:${riskColor(risk)}">${risk.toFixed(0)}/100</strong></div></div></article>`;
   }).join('');
   renderFlow();
 }
