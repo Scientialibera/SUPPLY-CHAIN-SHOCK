@@ -1,8 +1,8 @@
 # Supply Chain Shock
 
-Supply Chain Shock is an executive supply-chain exposure and scenario-analysis POC focused on critical minerals and primary materials.
+Supply Chain Shock is an executive supply-chain exposure and scenario-analysis application focused on critical minerals and primary materials.
 
-The application combines a global supplier-risk command center, material dependency analysis and a financial shock simulator. It is designed to demonstrate how enterprise procurement, trade, inventory and supplier data can be integrated into a single decision-support layer.
+The application combines a global supplier-risk command center, material dependency analysis and a financial shock simulator. It is designed to show how enterprise procurement, trade, inventory and supplier data can be integrated into a single decision-support layer.
 
 ## Product surfaces
 
@@ -45,14 +45,3 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 Open `http://localhost:8000`.
-
-## Tests
-
-```bash
-pytest -q
-python scripts/check_no_emoji.py
-```
-
-## Repository policy
-
-There is no CI/CD configuration in this repository. Tests and policy checks run only when invoked locally.
