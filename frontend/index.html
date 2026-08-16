@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supply Chain Shock</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">SC</div><div><span class="eyebrow">GLOBAL SUPPLY INTELLIGENCE</span><h1>Supply Chain Shock</h1></div></div>
+    <nav><button class="nav active" data-view="command">Command Center</button><button class="nav" data-view="materials">Critical Materials</button><button class="nav" data-view="scenario">Scenario Lab</button></nav>
+    <div class="status"><i></i>Portfolio model loaded</div>
+  </header>
+
+  <main>
+    <section id="view-command" class="view active command-layout">
+      <aside class="panel left-panel">
+        <span class="eyebrow">EXECUTIVE EXPOSURE</span><h2>Portfolio vulnerability</h2>
+        <div id="riskGauge" class="risk-gauge"></div>
+        <div class="stat-stack" id="portfolioStats"></div>
+        <div class="divider"></div>
+        <span class="eyebrow">TOP VULNERABILITIES</span><div id="topRisks" class="risk-list"></div>
+      </aside>
+      <section class="map-wrap">
+        <div id="map"></div>
+        <div class="map-title"><span class="eyebrow">GLOBAL MATERIAL FLOWS</span><strong>Supplier concentration and trade corridors</strong></div>
+        <div class="legend"><span><i class="safe"></i>Lower risk</span><span><i class="warn"></i>Elevated</span><span><i class="critical"></i>Critical</span></div>
+      </section>
+      <aside class="panel right-panel">
+        <span class="eyebrow">SHOCK WATCHLIST</span><h2>Concentration hotspots</h2>
+        <div id="countryList"></div>
+        <div class="divider"></div>
+        <span class="eyebrow">EXECUTIVE ACTION</span>
+        <p class="muted">Run a scenario to quantify revenue exposure, cost pressure and mitigation options before a disruption occurs.</p>
+        <button class="primary" id="openScenario">Open Scenario Lab</button>
+      </aside>
+    </section>
+
+    <section id="view-materials" class="view materials-view">
+      <div class="section-header"><div><span class="eyebrow">CRITICAL MATERIALS</span><h2>Primary materials and mineral dependency</h2></div><p>Portfolio spend, source concentration, inventory buffer and substitution difficulty.</p></div>
+      <div id="materialGrid" class="material-grid"></div>
+      <div class="panel flow-panel"><div><span class="eyebrow">DEPENDENCY CHAIN</span><h2>Country to material to industry exposure</h2></div><svg id="flowSvg" viewBox="0 0 1200 330" preserveAspectRatio="none"></svg></div>
+    </section>
+
+    <section id="view-scenario" class="view scenario-view">
+      <aside class="panel scenario-controls">
+        <span class="eyebrow">SCENARIO INPUTS</span><h2>Build a supply shock</h2>
+        <label>Country<select id="countrySelect"><option value="">All countries</option></select></label>
+        <label>Material<select id="materialSelect"><option value="">All materials</option></select></label>
+        <label>Supply loss <span id="supplyLossOut">50%</span><input id="supplyLoss" type="range" min="0" max="100" value="50"></label>
+        <label>Disruption duration <span id="delayOut">45 days</span><input id="delayDays" type="range" min="1" max="180" value="45"></label>
+        <label>FX move <span id="fxOut">0%</span><input id="fxMove" type="range" min="-20" max="40" value="0"></label>
+        <button class="primary" id="runScenario">Run shock simulation</button>
+        <p class="micro">Scenario outputs are decision-support estimates based on the sample portfolio. They are not market forecasts.</p>
+      </aside>
+      <section class="scenario-main">
+        <div id="scenarioKpis" class="kpi-grid"></div>
+        <div class="scenario-grid">
+          <div class="panel chart-panel"><span class="eyebrow">FINANCIAL EXPOSURE</span><h2>Revenue at risk by material</h2><div id="impactBars" class="bar-list"></div></div>
+          <div class="panel mitigation-panel"><span class="eyebrow">MITIGATION OPTIMIZER</span><h2>Recommended actions</h2><div id="mitigationList"></div></div>
+        </div>
+        <div class="panel recovery-panel"><span class="eyebrow">DISRUPTION CURVE</span><h2>Inventory depletion and recovery</h2><svg id="recoverySvg" viewBox="0 0 1100 220" preserveAspectRatio="none"></svg></div>
+      </section>
+    </section>
+  </main>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
